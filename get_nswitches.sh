@@ -9,7 +9,7 @@ KNOWN BUGS:
 	It doesnt handle counter overflow
 
 LIMITATIONS:
-	The number of arguments are the number of enabled CPUs, and the given
+	The number of arguments is the number of enabled CPUs, and the given
 	sched_debug files are in crescent order
 '
 
