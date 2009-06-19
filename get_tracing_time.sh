@@ -1,18 +1,20 @@
 #!/bin/bash
 
 
-USAGE='
+print_usage() {
+	cat - <<EOF
 USAGE:
 	get_tracing_time.sh tracing.txt <tracing.txt2> ... <tracing.txt3>
 
 KNOWN BUGS:
 	It doesnt handle counter overflow
-'
+
+EOF
+}
 
 if [[ $1 == "--help" || $# -lt 1 ]]
 then
-	#print_usage
-	echo -e "$USAGE"
+	print_usage
 	exit
 fi
 

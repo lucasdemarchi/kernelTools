@@ -2,7 +2,9 @@
 # change_thread_name
 # Author: Lucas De Marchi
 #
-USAGE='
+
+print_usage () {
+cat - << EOF
 USAGE
 	change_thread_name lookup_file trace_file [orig_name]
 
@@ -30,16 +32,18 @@ EXAMPLES
 			change_thread_names.sh - -
 
 	Get the input directly from ftrace
-		$ echo -e "wave0\\nwave1\\n----" |
+		$ echo -e "wave0\nwave1\n----" |
 			change_thread_names.sh - /debugfs/tracing/trace
 	
 	Get the input directly from ftrace and also keep a copy of the trace
-		$ (echo -e "thr1\\nthr2\\nthr3; echo "----";
+		$ (echo -e "thr1\nthr2\nthr3; echo "----";
 			cat /debugfs/tracing/trace | tee tracing.txt) |
 			change_thread_names.sh - -
-'
+EOF
 
-[[ $# -eq 0 || $1 == "-h" || $1 == "--help" ]] && echo -e "$USAGE" && exit 0
+}
+
+[[ $# -eq 0 || $1 == "-h" || $1 == "--help" ]] && print_usage && exit 0
 [[ $# -ne 2 && $# -ne 3 ]] && echo -e "Wrong number of parameters. See USAGE.\n\n${USAGE}" && exit 1
 
 

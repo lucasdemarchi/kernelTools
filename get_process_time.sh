@@ -1,18 +1,20 @@
 #!/bin/bash
 
 
-USAGE='
+print_usage() {
+	cat - <<EOF
 USAGE:
 	get_process_time.sh sched_debug1 <sched_debug2> ... <sched_debugN>
 
 KNOWN BUGS:
 	It doesnt handle counter overflow
-'
+
+EOF
+}
 
 if [[ $1 == "--help" || $# -lt 1 ]]
 then
-	#print_usage
-	echo -e "$USAGE"
+	print_usage
 	exit
 fi
 

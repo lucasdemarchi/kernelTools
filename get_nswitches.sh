@@ -1,7 +1,8 @@
 #!/bin/bash
 
 
-USAGE='
+print_usage() {
+	cat - <<EOF
 USAGE:
 	get_nswitches.sh sched_debug1 <sched_debug2> ... <sched_debugN>
 
@@ -11,11 +12,13 @@ KNOWN BUGS:
 LIMITATIONS:
 	The number of arguments is the number of enabled CPUs, and the given
 	sched_debug files are in crescent order
-'
+
+EOF
+}
 
 if [[ $1 == "--help" || $# -lt 1 ]]
 then
-	echo -e "$USAGE"
+	print_usage
 	exit 0
 fi
 
